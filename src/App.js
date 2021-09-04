@@ -1,15 +1,35 @@
 import './App.css';
+import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
+import Sharpshooter from './Sharpshooter/Sharpshooter'
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+
+  renderRoutes() {
+    return (
+      <div>
+        <Route
+          path={'/sharpshooter'}
+          component={Sharpshooter}
+        />
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className="App">
       <header className="App-header">
         <h1>
           DnD combat calculations
         </h1>
       </header>
-    </div>
-  );
+      <main>
+        {this.renderRoutes()}
+      </main>
+      </div>
+    )
+  }
 }
 
 export default App;

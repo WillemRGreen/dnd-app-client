@@ -1,15 +1,14 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import GenericForm from '../GenericForm/GenericForm'
 import './Sharpshooter.css'
 
-export default class Sharpshooter extends Component() {
+export default class Sharpshooter extends Component {
 
     static defaultProps = {
         history: {
           push: () => { }
         },
       }
-      static contextType = ApiContext;
 
       state = {
           acResult: '',
@@ -23,7 +22,7 @@ export default class Sharpshooter extends Component() {
 
       handleSubmit = e => {
           e.preventDefault()
-          let result = this.attackBonus - damageDie+damageBonus/2 + 16
+          let result = this.state.attackBonus - this.state.damageDie+this.state.damageBonus/2 + 16
           this.setState({acResult: result})
           this.setState({displayResult: true})
       }
@@ -45,7 +44,7 @@ export default class Sharpshooter extends Component() {
 
     render(){
         let resultDisplay = ''
-        if(this.state.displayResult == true){
+        if(this.state.displayResult === true){
             resultDisplay = 
                 <div className='result'>
                     <p>
