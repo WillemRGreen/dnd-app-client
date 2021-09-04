@@ -2,17 +2,27 @@ import './App.css';
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import Sharpshooter from './Sharpshooter/Sharpshooter'
+import MainPage from './MainPage/MainPage';
 
 class App extends Component {
 
   renderRoutes() {
     return (
-      <div>
-        <Route
-          path={'/sharpshooter'}
-          component={Sharpshooter}
-        />
-      </div>
+      <section>
+        <div>
+          <Route
+            path={'/sharpshooter'}
+            component={Sharpshooter}
+          />
+        </div>
+        <div>
+          <Route
+            path={'/'}
+            component={MainPage}
+          />
+        </div>
+      </section>
+      
     )
   }
 

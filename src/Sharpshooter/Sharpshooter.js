@@ -11,10 +11,10 @@ export default class Sharpshooter extends Component {
       }
 
       state = {
-          acResult: '',
-          attackBonus: '',
-          damageDie: '',
-          damageBonus: '',
+          acResult: 0,
+          attackBonus: 0,
+          damageDie: 0,
+          damageBonus: 0,
           displayResult: false,
           error: false
         
@@ -23,23 +23,22 @@ export default class Sharpshooter extends Component {
       handleSubmit = e => {
           e.preventDefault()
           let result = this.state.attackBonus - this.state.damageDie+this.state.damageBonus/2 + 16
-          this.setState({acResult: result})
-          this.setState({displayResult: true})
+          this.setState({acResult: result, displayResult: true})
       }
 
       handleAttackBonusChange = e => {
         e.preventDefault()
-        this.setState({attackBonus:e.currentTarget.value})
+        this.setState({attackBonus:parseInt(e.currentTarget.value)})
       }
 
       handleDamageDieChange = e => {
         e.preventDefault()
-        this.setState({damageDie:e.currentTarget.value})
+        this.setState({damageDie:parseInt(e.currentTarget.value)})
       }
 
       handleDamageBonusChange = e => {
         e.preventDefault()
-        this.setState({damageBonus:e.currentTarget.value})
+        this.setState({damageBonus:parseInt(e.currentTarget.value)})
       }
 
     render(){
@@ -48,10 +47,7 @@ export default class Sharpshooter extends Component {
             resultDisplay = 
                 <div className='result'>
                     <p>
-                        This is your AC threshhold for Sharpshooter/Great Weapon Master. Do not use your -5 bonus if the enemy's AC is higher than this:
-                    </p>
-                    <p>
-                        {this.state.acResult}
+                        Do not use your -5 bonus if the enemy's AC is higher than {this.state.acResult}
                     </p>
                 </div>
         }
@@ -60,7 +56,7 @@ export default class Sharpshooter extends Component {
                 <h2>
                     Sharpshooter/Great Weapon Master Calculator
                 </h2>
-                <GenericForm>
+                <GenericForm onSubmit={this.handleSubmit}>
                     <div className='input-div'>
                         <label htmlFor='attack-bonus'>
                             Your Attack Bonus
@@ -79,7 +75,7 @@ export default class Sharpshooter extends Component {
                         <label htmlFor='damage-bonus'>
                             Your Damage Bonus
                         </label>
-                        <input onchange={this.handleDamageBonusChange} name='damage-bonus' className='damage-bonus' placeholder='damage-bonus'></input>
+                        <input onChange={this.handleDamageBonusChange} name='damage-bonus' className='damage-bonus' placeholder='damage-bonus'></input>
                     </div>
 
                     <div className='submit'>
