@@ -7,9 +7,14 @@ export default class MainPage extends Component {
         return (
             <div>
                 <nav>
-                <Link to={'/sharpshooter'}>
+                    <Link to={'/sharpshooter'}>
                         <button className = 'item'>
                             Sharpshooter Calc
+                        </button>
+                    </Link>
+                    <Link to={'/monsterdamage'}>
+                        <button className = 'item'>
+                            Monster Damage Calculator
                         </button>
                     </Link>
                 </nav>

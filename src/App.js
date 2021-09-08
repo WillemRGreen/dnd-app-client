@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import Sharpshooter from './Sharpshooter/Sharpshooter'
 import MainPage from './MainPage/MainPage';
+import MonsterDamage from './MonsterDamage/MonsterDamage';
 
 class App extends Component {
 
@@ -13,6 +14,12 @@ class App extends Component {
           <Route
             path={'/sharpshooter'}
             component={Sharpshooter}
+          />
+        </div>
+        <div>
+          <Route
+            path={'/monsterdamage'}
+            component={MonsterDamage}
           />
         </div>
         <div>

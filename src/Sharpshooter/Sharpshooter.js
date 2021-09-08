@@ -85,6 +85,11 @@ export default class Sharpshooter extends Component {
                     </div>
                 </GenericForm>
                 {resultDisplay}
+                <Link to={'/'}>
+                        <button className = 'item'>
+                            Back to Main
+                        </button>
+                </Link>
             </section>
             
         )
