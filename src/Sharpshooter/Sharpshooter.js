@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import GenericForm from '../GenericForm/GenericForm'
 import './Sharpshooter.css'
 
